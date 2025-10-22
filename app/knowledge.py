@@ -14,7 +14,7 @@ AGENT_2_KNOWLEDGE = [
     /reports all reports
     /reports/[id] specific report
 
-    this is decentralised bug bounty platform, no signup required just connect any wagmi compatible wallet like metamask or phantom, switch to sepolia testnet
+    BugChan is decentralised bug bounty platform, no signup required just connect any wagmi compatible wallet like metamask or phantom, switch to sepolia testnet
     for researcher explore bounties and submit report, a stake amount decided by bounty owner is required to be paid for report submission, report is encrypted and stored on ipfs, bounty owners can create bounties, approve or reject submission, set stake amount, bounty owner review submission reports
     on approval the reward is sent to researcher.
     all longs and records are stored on chain, bounty report and bounty data is stored offchain in ipfs, only thier cids are stored on chain
