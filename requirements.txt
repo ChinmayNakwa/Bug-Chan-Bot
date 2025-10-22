@@ -1,0 +1,17 @@
+# Core framework
+langchain
+langgraph
+langsmith 
+langchain-classic
+fastapi
+uvicorn
+
+# Utilities
+python-dotenv
+
+# LangChain integrations for LLMs, embeddings, and vector stores
+langchain-openai
+langchain_google_genai
+langchain-community
+faiss-cpu
+tiktoken
