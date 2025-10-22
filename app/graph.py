@@ -9,26 +9,21 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from app.agents import agent_1_chain, agent_2_chain
 
-# --- Configuration ---
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 if not GOOGLE_API_KEY:
     raise ValueError("A GOOGLE_API_KEY must be set in your .env file.")
 
-# --- LLM for Routing and Reflection Tasks ---
 llm_router = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
     temperature=0,
     google_api_key=GOOGLE_API_KEY
 )
 
-# --- 1. Define the State of the Graph ---
 class AgentState(TypedDict):
     query: str
     answer: str
     chat_history: List[AnyMessage]
-
-# --- 2. Define the Node Functions ---
 
 def agent_1_node(state: AgentState) -> dict:
     """Node for the general bug bounty agent."""
@@ -58,8 +53,6 @@ def update_history_node(state: AgentState) -> dict:
     history.append(HumanMessage(content=state['query']))
     history.append(SystemMessage(content=state['answer']))
     return {"chat_history": history}
-
-# --- 3. Define the Conditional Edge Functions ---
 
 def decision_node(state: AgentState) -> str:
     """Uses an LLM to decide which agent should handle the query."""
@@ -108,8 +101,7 @@ def reflect_and_decide(state: AgentState) -> str:
     else:
         print("Reflector decision: 'stop' (Answer is not good)")
         return "stop"
-
-# --- 4. Construct the Graph ---
+    
 workflow = StateGraph(AgentState)
 
 workflow.add_node("agent_1", agent_1_node)
@@ -145,7 +137,6 @@ workflow.add_conditional_edges(
 
 workflow.add_edge("update_history", END)
 
-# --- 5. Compile with Session-Based Memory ---
 memory_store = MemorySaver()
 app_graph = workflow.compile(checkpointer=memory_store)
 
