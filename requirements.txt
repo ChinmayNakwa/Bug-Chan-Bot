@@ -15,3 +15,5 @@ langchain_google_genai
 langchain-community
 faiss-cpu
 tiktoken
+
+sentence-transformers
