@@ -60,7 +60,7 @@ def decision_node(state: AgentState) -> str:
     prompt = f"""
     You are a router. Your task is to classify the user's query into one of two categories based on its content:
     1. 'general_hacking': For questions about general bug bounty concepts, vulnerabilities, hacking techniques, PoCs, etc.
-    2. 'website_specific': For questions about how to use our specific website, such as logging in, submitting reports, finding pages, or managing an account.
+    2. 'website_specific': For questions about how to use BugChan, such as logging in, submitting reports, finding pages, or managing an account.
 
     Based on the user's query, which category is more appropriate?
     User Query: "{state['query']}"
@@ -138,7 +138,7 @@ workflow.add_conditional_edges(
 workflow.add_edge("update_history", END)
 
 memory_store = MemorySaver()
-app_graph = workflow.compile(checkpointer=memory_store)
+app_graph = workflow.compile(checkpointer=None)
 
 # Example of invoking with session-based memory
 # Each session_id corresponds to a user or conversation thread
