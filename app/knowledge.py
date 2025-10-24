@@ -59,7 +59,7 @@ AGENT_2_KNOWLEDGE = [
 
     Bounty creation flow (bounty owner)
     Connect wallet (wallet signature + switch to Sepolia).
-    Click /create-bounty. Enter: title, description, scope, target docs link(s), reward amount (on-chain amount to be paid), required stake amount for submissions, acceptance window / deadline, optional rules.
+    Click /bounties/create-bounty. Enter: title, description, scope, target docs link(s), reward amount (on-chain amount to be paid), required stake amount for submissions, acceptance window / deadline, optional rules.
     Upload target docs (uploads to Lighthouse IPFS). Store returned CID in the on-chain create-bounty transaction payload (or in a follow-up tx that records the CID). Every write requires a wallet-signed transaction and gas.
     Smart contract stores bounty record: owner address, reward, stake requirement, docs CID, status OPEN, created timestamp. Owner funds the reward in the contract if protocol requires escrow; otherwise contract records payable-on-approval rules and the owner must keep on-chain balance. Wallet approvals required for token transfers if reward uses ERC-20.
     Researcher (hacker) flow — browse, submit, stake, report encryption
@@ -98,5 +98,5 @@ AGENT_2_KNOWLEDGE = [
     Build on reputation: more wins on /leaderboard => higher trust and better bounty opportunities.
     Participate in high-value bounties that escrow larger rewards.
     Optionally specify bounty listings off-platform and link to Bugchan"""
-    
+
 ]
