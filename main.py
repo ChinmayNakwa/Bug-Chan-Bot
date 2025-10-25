@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from typing import List
 from langchain_core.messages import AnyMessage, HumanMessage, AIMessage
 
-from app.graph import app_graph
+from graph import app_graph
 
 app = FastAPI(
     title="Bug Bounty Chatbot",

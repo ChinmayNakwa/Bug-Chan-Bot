@@ -7,7 +7,7 @@ from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.messages import AnyMessage, SystemMessage, HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-from app.agents import agent_1_chain, agent_2_chain
+from agents import agent_1_chain, agent_2_chain
 
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
